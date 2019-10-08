@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Profit Calculator </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="profit-calc.css">
+    <script src="profit-calc.js"></script>
+</head>
+
+<body>
+    <!--Overall Container -->
+    <div class="container-fluid">
+        <!--intro-->
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4 mt-4">
+                <h2 class="mb-3">Crypto Investment Profit Calculator</h2>
+                <p1>Use this calculator to find out how much you've made from your crypto investment
+                </p1>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+        <!--calculator-->
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4 mt-4">
+                <!--Selectors-->
+                <div class="form-group">
+                    <div class="form group row">
+                        <div class="col-md-4">
+                            <label for="formcontrol">Amount in:</label>
+                            <select class="form-control" onchange="selection();" style="border-color:blue;" id="formcontrol">
+                                <option value="$">$</option>
+                                <option value="BTC">BTC</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="pricecontrol">Current Price</label>
+                            <select class="form-control" onchange="priceselection();" style="border-color:blue;" id="pricecontrol">
+                                <option value="M">Market</option>
+                                <option value="C">Custom</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <!--Input-->
+                <div class="form-group">
+                    <label for="n1">Principle/Initial Investment</label>
+                    <input type="text" class="form-control" placeholder="$" id="n1">
+                    <!--Error Message Placeholder-->
+                    <p id="warning"></p>
+                </div>
+                <div class="form-group">
+                    <label for="n2">Purchase Price</label>
+                    <input type="text" class="form-control" placeholder="$" id="n2">
+                </div>
+                <div class="form-group">
+                    <label for="n3">Current Price</label>
+                    <input type="text" class="form-control" placeholder="" id="n3" readonly>
+                </div>
+                <div>
+                    <button id="button" onclick="calc();" type="button" class="btn btn-secondary mt-4">Calculate Profit</button>
+                </div>
+                <!-- display result -->
+                <div class="mt-4">
+                    <p1>You've made:</p1>
+                    <h1 class="mb-3" id="result" style="font-size:48px;"></h1>
+                    <p1 id="total"></p1>
+                </div>
+            </div>
+            <div class="col-md-4">
+            </div>
+        </div>
+
+        <!-- buffer -->
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4 mt-4" style="height:100px;">
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
+
+</body>
+
+</html>

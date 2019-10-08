@@ -1,0 +1,73 @@
+
+
+
+
+
+
+
+
+HTML
+<div class="col-md-4">
+    <label for="purchasecontrol">Purchase</label>
+    <select class="form-control" onchange ="purchaseselection()"  style="border-color:blue;" id="purchasecontrol">
+        <option value="C">Custom</option>
+        <option value="D">By Date</option>
+    </select>
+</div>
+
+
+
+----------
+
+
+
+JAVASCRIPT
+
+//handling not a number
+- go through each character
+- if not a number, ., or $, send error
+
+//controlling purchase selection view
+function purchaseselection(){
+    var option = document.getElementById("purchasecontrol").value;
+    if(option == 'D'){
+        document.getElementById("n2").type = "date";
+    } else{
+        //doesn't clear date
+        document.getElementById("n2").value = "";
+        document.getElementById("n2").type = "text";
+        
+    }
+}
+
+
+//API hit for historical price
+
+/*
+Currenly running into CORS error
+Trying to get around by using cors-anywhere api
+*/
+
+/*
+var request2 = new XMLHttpRequest();
+var startDate = 2018-12-11
+var endDate = startDate;
+var requestURL2 = "https://cors-anywhere.herokuapp.com/https://api.coindesk.com/v1/bpi/historical/close.json?start=" + startDate +"&end=" + endDate;
+
+request2.open("GET", requestURL2);
+
+
+//Using this to try to get around this error
+//Missing required request header. Must specify one of: origin,x-requested-with
+
+request2.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+
+request2.onreadystatechange = function() {
+    if(this.readyState==4 && this.status==200){
+        historical = JSON.parse(this.responseText).bpi;
+        console.log(historical);
+    }
+}
+
+request2.send();
+*/
